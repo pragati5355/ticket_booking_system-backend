@@ -9,5 +9,5 @@ public interface BookTicketDao {
 
 	public List<BookTicket> getBooking();
 
-	// public List<BookTicket> getSeats(Long id);
+	public List<BookTicket> getSeats(Long id);
 }

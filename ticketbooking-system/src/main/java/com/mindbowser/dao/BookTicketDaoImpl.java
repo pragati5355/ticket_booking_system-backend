@@ -39,16 +39,16 @@ public class BookTicketDaoImpl implements BookTicketDao {
 
 	}
 
-	// @Override
-	// public List<BookTicket> getSeats(Long id) {
-	//
-	// try {
-	// return bookTicketRepository.findById(id).get();
-	// }
-	// catch (Exception e) {
-	// throw new CustomException(ErrorCode.NOT_FOUND, e.getMessage(), ERROR_MESSAGE);
-	// }
-	//
-	// }
+	@Override
+	public List<BookTicket> getSeats(Long id) {
+
+		try {
+			return bookTicketRepository.findSeats(id);
+		}
+		catch (Exception e) {
+			throw new CustomException(ErrorCode.NOT_FOUND, e.getMessage(), ERROR_MESSAGE);
+		}
+
+	}
 
 }

@@ -1,6 +1,7 @@
 package com.mindbowser.controller;
 
 import static com.mindbowser.constant.UrlMapping.BASE_URL;
+import static com.mindbowser.constant.UrlMapping.BOOKED_SEATS;
 import static com.mindbowser.constant.UrlMapping.SUCESS_RESPONSE;
 import static com.mindbowser.constant.UrlMapping.TICKET_BOOKING;
 import java.util.List;
@@ -9,6 +10,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -42,9 +44,13 @@ public class BookTicketController {
 		return bookTicketService.getBooking();
 	}
 
-	// @GetMapping(BOOKED_SEATS)
+	@GetMapping(BOOKED_SEATS)
+	public List<BookTicket> getSeats(@PathVariable Long id) {
+		return bookTicketService.getSeats(id);
+	}
 	// public ResponseEntity<SucessResponse<List<BookTicket>>> getSeats(@PathVariable Long id) {
 	// List<BookTicket> bookTicket = bookTicketService.getSeats(id);
-	// return responseMaker.sucessResponse(bookTicket, SUCESS_RESPONSE, HttpStatus.OK);
+	// System.out.println(bookTicket.toString());
+	// return responseMaker.sucessResponse(SUCESS_RESPONSE, bookTicket, HttpStatus.OK);
 	// }
 }

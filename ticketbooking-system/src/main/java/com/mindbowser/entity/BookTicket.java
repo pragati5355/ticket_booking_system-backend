@@ -1,5 +1,6 @@
 package com.mindbowser.entity;
 
+import java.util.Arrays;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -37,6 +38,11 @@ public class BookTicket {
 	public BookTicket() {
 		super();
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public String toString() {
+		return "BookTicket [Id=" + Id + ", userName=" + userName + ", userEmail=" + userEmail + ", userMobileno=" + userMobileno + ", movie=" + movie + ", seat=" + Arrays.toString(seat) + "]";
 	}
 
 	public BookTicket(Long id, String userName, String userEmail, String userMobileno, Movie movie, String[] seat) {

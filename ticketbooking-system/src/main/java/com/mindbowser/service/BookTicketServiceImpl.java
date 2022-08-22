@@ -37,9 +37,9 @@ public class BookTicketServiceImpl implements BookTicketService {
 		return bookTicketDao.getBooking();
 	}
 
-	// @Override
-	// public List<BookTicket> getSeats(Long id) {
-	// return bookTicketDao.getSeats(id);
-	// }
+	@Override
+	public List<BookTicket> getSeats(Long id) {
+		return bookTicketDao.getSeats(id);
+	}
 
 }

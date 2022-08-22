@@ -10,5 +10,5 @@ public interface BookTicketService {
 
 	public List<BookTicket> getBooking();
 
-	// public List<BookTicket> getSeats(Long id);
+	public List<BookTicket> getSeats(Long id);
 }

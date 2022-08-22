@@ -31,4 +31,9 @@ public class ResponseMaker {
 		return null;
 	}
 
+	public ResponseEntity<SucessResponse<List<BookTicket>>> sucessResponse(String sucessResponse, List<BookTicket> bookTicket, HttpStatus ok) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 }
