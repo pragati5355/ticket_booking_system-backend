@@ -1,5 +1,9 @@
 package com.mindbowser.util;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+
+@JsonInclude(Include.NON_DEFAULT)
 public class SucessResponse<T> {
 
 	private String message;

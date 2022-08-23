@@ -37,12 +37,13 @@ public class MovieController {
 	public ResponseEntity<SucessResponse<String>> addMovies(@RequestBody @Valid MovieDto movieDto) {
 
 		movieService.addMovie(movieDto);
-		return responseMaker.sucessResponse(SUCESS_RESPONSE, HttpStatus.OK);
+		return responseMaker.sucessResponse(SUCESS_RESPONSE, HttpStatus.CREATED);
 	}
 
 	@GetMapping(MOVIES)
-	public List<Movie> getAllMovie() {
-		return movieService.getAllMovies();
+	public ResponseEntity<SucessResponse<List<Movie>>> getAllMovie() {
+		List<Movie> movies = movieService.getAllMovies();
+		return responseMaker.sucessResponse(movies, HttpStatus.OK);
 	}
 
 	@GetMapping(SINGLE_MOVIE)

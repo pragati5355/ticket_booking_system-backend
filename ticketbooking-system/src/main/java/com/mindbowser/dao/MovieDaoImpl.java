@@ -46,7 +46,7 @@ public class MovieDaoImpl implements MovieDao {
 			return movie;
 		}
 		else {
-			throw new CustomException(ErrorCode.NOT_FOUND, ERROR_MESSAGE + id);
+			throw new CustomException(ErrorCode.NOT_FOUND, ERROR_MESSAGE);
 		}
 	}
 

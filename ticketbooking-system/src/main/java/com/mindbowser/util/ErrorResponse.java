@@ -1,7 +1,12 @@
 package com.mindbowser.util;
 
 import java.sql.Date;
+import java.util.List;
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.annotation.JsonInclude.Include;
+import com.mindbowser.exception.ValidatioErrorResponse;
 
+@JsonInclude(Include.NON_DEFAULT)
 public class ErrorResponse {
 
 	private String details;
@@ -13,6 +18,8 @@ public class ErrorResponse {
 	private Date timestamp;
 
 	private String message;
+
+	private List<ValidatioErrorResponse> validationErros;
 
 	public ErrorResponse() {
 		super();
@@ -34,6 +41,14 @@ public class ErrorResponse {
 
 	public ErrorResponse(String message2, int errorCode, boolean b) {
 		// TODO Auto-generated constructor stub
+	}
+
+	public List<ValidatioErrorResponse> getValidationErros() {
+		return validationErros;
+	}
+
+	public void setValidationErros(List<ValidatioErrorResponse> validationErros) {
+		this.validationErros = validationErros;
 	}
 
 	public String getDetails() {

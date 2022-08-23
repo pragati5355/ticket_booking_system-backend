@@ -27,4 +27,6 @@ public class UrlMapping {
 	public static final String EXCEPTION_MESSAGE = "Error while converting object";
 
 	public static final String SUCESS_RESPONSE = "Data added sucessfully";
+
+	public static final String VALIDATION_ERROR_MSG = "Please enter valid data";
 }

@@ -2,7 +2,6 @@ package com.mindbowser.controller;
 
 import static com.mindbowser.constant.UrlMapping.BASE_URL;
 import static com.mindbowser.constant.UrlMapping.BOOKED_SEATS;
-import static com.mindbowser.constant.UrlMapping.SUCESS_RESPONSE;
 import static com.mindbowser.constant.UrlMapping.TICKET_BOOKING;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,21 +35,19 @@ public class BookTicketController {
 	public ResponseEntity<SucessResponse<BookTicket>> saveBooking(@RequestBody BookTicketDto bookTicketDto) {
 
 		BookTicket bookTicket = bookTicketService.saveBooking(bookTicketDto);
-		return responseMaker.sucessResponse(bookTicket, SUCESS_RESPONSE, HttpStatus.OK);
+		return responseMaker.sucessResponse(bookTicket, HttpStatus.OK);
 	}
 
 	@GetMapping(TICKET_BOOKING)
-	public List<BookTicket> getBookings() {
-		return bookTicketService.getBooking();
+	public ResponseEntity<SucessResponse<List<BookTicket>>> getBookings() {
+		List<BookTicket> bookTickets = bookTicketService.getBooking();
+		return responseMaker.sucessResponse(bookTickets, HttpStatus.OK);
 	}
 
 	@GetMapping(BOOKED_SEATS)
-	public List<BookTicket> getSeats(@PathVariable Long id) {
-		return bookTicketService.getSeats(id);
+	public ResponseEntity<SucessResponse<List<BookTicket>>> getSeats(@PathVariable Long id) {
+		List<BookTicket> bookTicket = bookTicketService.getSeats(id);
+		System.out.println(bookTicket.toString());
+		return responseMaker.sucessResponse(bookTicket, HttpStatus.OK);
 	}
-	// public ResponseEntity<SucessResponse<List<BookTicket>>> getSeats(@PathVariable Long id) {
-	// List<BookTicket> bookTicket = bookTicketService.getSeats(id);
-	// System.out.println(bookTicket.toString());
-	// return responseMaker.sucessResponse(SUCESS_RESPONSE, bookTicket, HttpStatus.OK);
-	// }
 }

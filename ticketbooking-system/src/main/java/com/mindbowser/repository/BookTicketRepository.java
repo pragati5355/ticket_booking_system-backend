@@ -9,7 +9,7 @@ import com.mindbowser.entity.BookTicket;
 @Repository
 public interface BookTicketRepository extends JpaRepository<BookTicket, Long> {
 
-	@Query(value = "SELECT * FROM `ticket-booking-db`.bookings where movie_id=(?1)", nativeQuery = true)
+	@Query(value = "SELECT b FROM BookTicket b where movie_id=(?1)")
 	List<BookTicket> findSeats(Long id);
 
 }

@@ -4,7 +4,7 @@ import java.util.List;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
-import com.mindbowser.entity.BookTicket;
+import com.mindbowser.exception.ValidatioErrorResponse;
 
 @Component
 public class ResponseMaker {
@@ -15,25 +15,18 @@ public class ResponseMaker {
 		return new ResponseEntity<>(response, status);
 	}
 
-	public <T> ResponseEntity<ErrorResponse> errorResponse(String message, int errorCode) {
+	public ResponseEntity<ErrorResponse> errorResponse(String message, int errorCode) {
 		ErrorResponse response = new ErrorResponse(message, errorCode, true);
 
 		return new ResponseEntity<>(response, HttpStatus.OK);
 	}
 
-	public ResponseEntity<SucessResponse<BookTicket>> sucessResponse(BookTicket bookTicket, String sucessResponse, HttpStatus ok) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public ResponseEntity<Object> validationErrorsResponse(String message, List<ValidatioErrorResponse> validatioErrorResponses) {
 
-	public ResponseEntity<SucessResponse<List<BookTicket>>> sucessResponse(List<BookTicket> bookTicket, String sucessResponse, HttpStatus ok) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+		ErrorResponse response = new ErrorResponse(message, HttpStatus.BAD_REQUEST.value(), true);
+		response.setValidationErros(validatioErrorResponses);
 
-	public ResponseEntity<SucessResponse<List<BookTicket>>> sucessResponse(String sucessResponse, List<BookTicket> bookTicket, HttpStatus ok) {
-		// TODO Auto-generated method stub
-		return null;
+		return new ResponseEntity<>(response, HttpStatus.BAD_REQUEST);
 	}
 
 }
