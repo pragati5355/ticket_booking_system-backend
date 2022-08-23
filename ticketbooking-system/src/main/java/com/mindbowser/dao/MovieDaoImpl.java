@@ -41,13 +41,9 @@ public class MovieDaoImpl implements MovieDao {
 	@Override
 	public Movie findById(Long id) {
 
-		Movie movie = movieRepository.findMovieById(id);
-		if (movie != null) {
-			return movie;
-		}
-		else {
-			throw new CustomException(ErrorCode.NOT_FOUND, ERROR_MESSAGE);
-		}
+		return movieRepository.findMovieById(id)
+				.orElseThrow(() -> new CustomException(ErrorCode.NOT_FOUND, ERROR_MESSAGE));
+
 	}
 
 }
