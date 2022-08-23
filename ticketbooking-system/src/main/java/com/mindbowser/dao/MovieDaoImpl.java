@@ -4,13 +4,13 @@ import static com.mindbowser.constant.UrlMapping.ERROR_MESSAGE;
 import static com.mindbowser.constant.UrlMapping.ERROR_MSG_SAVE;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Repository;
 import com.mindbowser.entity.Movie;
 import com.mindbowser.enums.ErrorCode;
 import com.mindbowser.exception.CustomException;
 import com.mindbowser.repository.MovieRepository;
 
-@Service
+@Repository
 public class MovieDaoImpl implements MovieDao {
 
 	@Autowired
@@ -41,7 +41,7 @@ public class MovieDaoImpl implements MovieDao {
 	@Override
 	public Movie findById(Long id) {
 
-		Movie movie = movieRepository.findById(id).get();
+		Movie movie = movieRepository.findMovieById(id);
 		if (movie != null) {
 			return movie;
 		}

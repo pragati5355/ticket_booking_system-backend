@@ -13,7 +13,7 @@ public class Movie {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
-	private Long Id;
+	private Long id;
 
 	@Column(name = "movie_image")
 	private String moviePoster;
@@ -37,7 +37,7 @@ public class Movie {
 
 	public Movie(Long id, String moviePoster, String movieTitle, String movieSubtitle, String movieText, String type) {
 		super();
-		Id = id;
+		this.id = id;
 		this.moviePoster = moviePoster;
 		this.movieTitle = movieTitle;
 		this.movieSubtitle = movieSubtitle;
@@ -46,11 +46,11 @@ public class Movie {
 	}
 
 	public Long getId() {
-		return Id;
+		return id;
 	}
 
 	public void setId(Long id) {
-		Id = id;
+		this.id = id;
 	}
 
 	public String getMoviePoster() {
